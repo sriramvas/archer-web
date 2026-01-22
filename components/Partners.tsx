@@ -30,7 +30,7 @@ const Partners: React.FC = () => {
             {/* Logo Image */}
             <div className="relative z-10 w-full h-full flex items-center justify-center px-2">
                 <img 
-                  src="/img/colosseum.png" 
+                  src="./img/colosseum.png" 
                   alt="Colosseum Logo" 
                   className="w-full h-auto object-contain max-h-full"
                   loading="eager"
