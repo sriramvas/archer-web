@@ -17,14 +17,14 @@ const Header: React.FC = () => {
           >
               {/* Mobile Logo */}
               <img 
-                src="https://images2.imgbox.com/c9/3b/Ohq22Gp1_o.png" 
+                src="/img/mob-logo.png" 
                 alt="Archer Logo" 
                 className="w-auto h-full object-contain sm:hidden"
                 loading="eager"
               />
               {/* Tablet & Desktop Logo */}
               <img 
-                src="https://images2.imgbox.com/a3/95/AlxoXhvB_o.png" 
+                src="/img/full-logo.png" 
                 alt="Archer Logo" 
                 className="hidden sm:block w-auto h-full object-contain"
                 loading="eager"
