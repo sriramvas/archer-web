@@ -78,7 +78,7 @@ const MatchingSection: React.FC = () => {
             icon={
               <div className="relative w-32 h-32 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity duration-500">
                 <img 
-                  src="https://images2.imgbox.com/7c/73/kwwLLGij_o.png" 
+                  src="/img/blog1.png" 
                   alt="Archer Logo"
                   className="w-full h-full object-contain brightness-110"
                 />
