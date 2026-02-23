@@ -9,6 +9,28 @@ interface OrderRow {
 const OrderBook: React.FC = () => {
   const [time, setTime] = useState(Date.now());
   const [highlight, setHighlight] = useState<boolean>(false);
+  const [currentPrice, setCurrentPrice] = useState<number>(65000);
+
+  // Fetch BTC Price
+  useEffect(() => {
+    const fetchPrice = async () => {
+      try {
+        const res = await fetch('/api/update-btc-price');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success && data.price) {
+            setCurrentPrice(data.price);
+          }
+        }
+      } catch (error) {
+        // Fallback to default/last price on error (do nothing)
+        console.error('Failed to fetch BTC price, using fallback');
+      }
+    };
+
+    fetchPrice();
+    // Optional: Poll every minute if desired, but user only asked for initial fetch logic based on cron
+  }, []);
 
   // Animation ticker
   useEffect(() => {
@@ -46,11 +68,9 @@ const OrderBook: React.FC = () => {
     return isAsk ? rows.reverse() : rows;
   };
 
-  const currentPrice = 90100;
-  
   // Memoize data generation
-  const asks = useMemo(() => generateData(currentPrice + 0.1, true, time), [Math.floor(time / 300)]);
-  const bids = useMemo(() => generateData(currentPrice - 0.1, false, time), [Math.floor(time / 300)]);
+  const asks = useMemo(() => generateData(currentPrice + 0.1, true, time), [currentPrice, Math.floor(time / 300)]);
+  const bids = useMemo(() => generateData(currentPrice - 0.1, false, time), [currentPrice, Math.floor(time / 300)]);
 
   // Generate SVG path for the depth chart
   const generateChartPath = (isAsk: boolean, data: OrderRow[]) => {
