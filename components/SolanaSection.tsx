@@ -10,13 +10,22 @@ const SolanaSection: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-20">
           
           {/* Left: Sticky Header */}
-          <div className="w-full lg:w-1/3 lg:sticky lg:top-32">
-             <span className="font-mono text-xs font-medium tracking-[0.3em] uppercase mb-6 block opacity-70 flex items-center gap-3 text-accent">
-                <span className="w-8 h-[2px] bg-accent"></span>
-                The Foundation
-             </span>
-             <h2 className="font-sans font-medium text-6xl sm:text-6xl lg:text-7xl tracking-tighter mb-8 text-white leading-none">
-                Built For<br/>Retail Users
+          <div className="w-full lg:w-1/3 lg:sticky lg:top-32 flex flex-col items-center text-center lg:items-start lg:text-left">
+             
+             {/* Label Section - Styled like 'Learn' on mobile/tablet, distinctive on desktop */}
+             <div className="flex items-center gap-3 mb-6 opacity-90 lg:opacity-100">
+                <span className="w-4 h-[1px] lg:w-8 lg:h-[2px] bg-accent"></span>
+                <span className="font-mono text-accent text-[10px] lg:text-xs font-medium tracking-[0.4em] lg:tracking-[0.3em] uppercase">
+                  The Foundation
+                </span>
+                <span className="w-4 h-[1px] bg-accent lg:hidden"></span>
+             </div>
+
+             <h2 className="font-sans font-medium text-5xl sm:text-6xl tracking-tighter mb-8 text-white leading-none">
+                {/* Single line for mobile/tablet */}
+                <span className="lg:hidden">Built For Retail</span>
+                {/* Multiline for desktop */}
+                <span className="hidden lg:block">Built For<br/>Retail Users</span>
              </h2>
           </div>
 
